@@ -26,3 +26,19 @@ def get_char_count(filepath):
         else:
             char_count_dict[char] = 1
     return char_count_dict
+
+def get_sorted_list(counted_dict):
+    def sort_on(items):
+        return items["num"]
+    
+    a = counted_dict
+    result = []
+    for key, value in a.items():
+        sub_dict = {}
+        sub_dict["char"] = key
+        sub_dict["num"] = value
+        result.append(sub_dict)
+
+    result.sort(reverse = True, key = sort_on)
+    return result
+    
